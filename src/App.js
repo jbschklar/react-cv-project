@@ -22,6 +22,7 @@ class App extends Component {
 	}
 
 	handleSubmit(obj) {
+		if (!obj) return;
 		this.setState({
 			name: {
 				firstName: obj.firstName,
@@ -36,7 +37,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<PersonalData handleSubmit={this.handleSubmit} />
+				<PersonalData handleSubmit={this.handleSubmit} obj={this.state} />
 			</div>
 		);
 	}
