@@ -21,6 +21,17 @@ class App extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	formatPhone = function (numStr) {
+		return (
+			"(" +
+			numStr.slice(0, 3) +
+			") " +
+			numStr.slice(3, 6) +
+			"-" +
+			numStr.slice(6)
+		);
+	};
+
 	handleSubmit(obj) {
 		if (!obj) return;
 		this.setState({
@@ -29,7 +40,7 @@ class App extends Component {
 				lastName: obj.lastName,
 			},
 			contactInfo: {
-				phone: obj.phone,
+				phone: this.formatPhone(obj.phone),
 				email: obj.email,
 			},
 		});

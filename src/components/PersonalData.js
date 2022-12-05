@@ -31,8 +31,9 @@ class PersonalData extends Component {
 	};
 
 	handlePhoneChange = (e) => {
+		const formattedPhone = e.target.value;
 		this.setState({
-			phone: e.target.value,
+			phone: formattedPhone,
 		});
 	};
 
