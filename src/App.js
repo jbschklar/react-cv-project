@@ -32,8 +32,15 @@ class App extends Component {
 		);
 	};
 
+	// validateSubmit(obj) {
+	// 	let valid = true;
+	// 	Object.entries(obj).forEach((arr) => {
+	// 		if (arr[1] === null) valid = false;
+	// 	});
+	// 	return valid;
+	// }
+
 	handleSubmit(obj) {
-		if (!obj) return;
 		this.setState({
 			name: {
 				firstName: obj.firstName,

@@ -11,7 +11,7 @@ class PersonalData extends Component {
 			phone: null,
 		};
 	}
-
+	// add error handling to show below input in red during typing.
 	handleFNChange = (e) => {
 		this.setState({
 			firstName: e.target.value,
@@ -37,12 +37,21 @@ class PersonalData extends Component {
 		});
 	};
 
+	validateSubmit(obj) {
+		let valid = true;
+		Object.entries(obj).forEach((arr) => {
+			if (arr[1] === null) valid = false;
+		});
+		return valid;
+	}
+
 	render() {
 		if (this.state.edit)
 			return (
 				<form
 					onSubmit={(e) => {
 						e.preventDefault();
+						if (!this.validateSubmit(this.state)) return;
 						this.setState({
 							edit: false,
 						});
