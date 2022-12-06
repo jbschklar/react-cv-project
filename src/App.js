@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import PersonalData from "./components/PersonalData";
+import Education from "./components/Education";
 
 class App extends Component {
 	constructor(props) {
@@ -32,14 +33,6 @@ class App extends Component {
 		);
 	};
 
-	// validateSubmit(obj) {
-	// 	let valid = true;
-	// 	Object.entries(obj).forEach((arr) => {
-	// 		if (arr[1] === null) valid = false;
-	// 	});
-	// 	return valid;
-	// }
-
 	handleSubmit(obj) {
 		this.setState({
 			name: {
@@ -52,10 +45,24 @@ class App extends Component {
 			},
 		});
 	}
+
+	handleEduSubmit(obj) {
+		const education = this.state.education;
+		this.setState({
+			education: education.concat({
+				school: obj.school,
+				major: obj.major,
+				gradDate: obj.gradDate,
+			}),
+		});
+		console.log(this.state.education);
+	}
+
 	render() {
 		return (
 			<div>
 				<PersonalData handleSubmit={this.handleSubmit} obj={this.state} />
+				<Education handleSubmit={this.handleEduSubmit} obj={this.state} />
 			</div>
 		);
 	}
