@@ -20,6 +20,7 @@ class App extends Component {
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleEduSubmit = this.handleEduSubmit.bind(this);
 	}
 
 	formatPhone = function (numStr) {
@@ -47,15 +48,13 @@ class App extends Component {
 	}
 
 	handleEduSubmit(obj) {
-		const education = this.state.education;
 		this.setState({
-			education: education.concat({
+			education: this.state.education.concat({
 				school: obj.school,
 				major: obj.major,
 				gradDate: obj.gradDate,
 			}),
 		});
-		console.log(this.state.education);
 	}
 
 	render() {
